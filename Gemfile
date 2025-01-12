@@ -2,6 +2,7 @@
 
 source 'https://rubygems.org'
 
+gem 'brakeman'
 gem 'loofah', '2.2.3'
 gem 'puma'
 gem 'rack'
@@ -9,10 +10,5 @@ gem 'rackup'
 gem 'rspec'
 gem 'rubocop'
 gem 'sinatra'
-gem 'brakeman'
 
 
-# Gemfile
-group :development, :test do
-    gem 'rubocop', require: false
-  end
