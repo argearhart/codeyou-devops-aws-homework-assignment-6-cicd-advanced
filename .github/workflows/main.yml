@@ -4,7 +4,7 @@ description: Build and test ruby project
 on:
   push:
     branches:
-      - main
+      - develop
 
 jobs:
   build:
