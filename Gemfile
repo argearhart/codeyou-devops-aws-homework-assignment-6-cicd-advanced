@@ -9,3 +9,10 @@ gem 'rackup'
 gem 'rspec'
 gem 'rubocop'
 gem 'sinatra'
+gem 'brakeman'
+
+
+# Gemfile
+group :development, :test do
+    gem 'rubocop', require: false
+  end
