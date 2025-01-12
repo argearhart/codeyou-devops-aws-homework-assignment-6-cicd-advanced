@@ -4,7 +4,7 @@ description: Build and test ruby project
 on:
   push:
     branches:
-      - main
+      - develop
 
 jobs:
   build:
@@ -23,7 +23,7 @@ jobs:
         run: bundle install
 
       - name: Run RuboCop
-        run: bundle exec rubocop
+        run: bundle exec rubocop --auto-correct
 
       - name: Run Bundler Audit
         run: |
@@ -32,3 +32,12 @@ jobs:
 
       - name: Run Tests
         run: bundle exec rspec --init
+
+      - name: Log in to Docker Hub
+        run: echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
+
+      - name: Build Docker image
+        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/ruby-app:latest .
+
+      - name: Push Docker image
+        run: docker push ${{ secrets.DOCKER_USERNAME }}/ruby-app:latest
