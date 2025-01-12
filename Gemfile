@@ -3,6 +3,7 @@
 source 'https://rubygems.org'
 
 gem 'brakeman'
+gem 'bundler'
 gem 'loofah', '2.2.3'
 gem 'puma'
 gem 'rack'
