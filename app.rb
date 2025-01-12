@@ -8,7 +8,7 @@ require 'erb'
 class App
   def self.greet(name)
     # Escape the name to prevent XSS
-    "Hello, #{Rack::Utils.escape_html(name)}!"
+    "Hello, adding a change to test#{Rack::Utils.escape_html(name)}!"
   end
 end
 
